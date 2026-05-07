@@ -15,7 +15,7 @@ const connection = await mysql.createConnection({
   host: "localhost",
   user: "root",
   password: process.env.PASSWORD,
-  database: "note_app",
+  database: "notesapp",
 });
 
 // 3. THE HOOKUP: Spread everything into the schema object
@@ -26,5 +26,5 @@ export const db = drizzle(connection, {
     ...foldersSchema, 
     ...tagsSchema, 
     ...relations 
-  } 
+  },mode:"default"
 });

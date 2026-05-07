@@ -2,33 +2,42 @@ import 'dotenv/config';
 import { db } from './db/index.js';
 import { sql } from 'drizzle-orm';
 import express from 'express';
-
+import notesRoutes from './routes/notesRoutes.js'
 const app = express();
 const PORT = process.env.PORT;
 
+app.use(express.json());
+app.use('/api/notes',notesRoutes);
+
 async function startServer() {
   try {
-    // 1. Attempt to communicate with the database
     console.log("⏳ Connecting to database...");
-    
-    // We run a simple "SELECT 1" to verify the connection is alive
     await db.execute(sql`SELECT 1`);
-    
-    console.log("✅ Database is running and reachable.");
 
-    // 2. Only start the server if the database check passes
+    console.log("✅ Database is running and reachable.");
     app.listen(PORT, () => {
       console.log(`🚀 Server started on http://localhost:${PORT}`);
     });
-
   } catch (error) {
-    // 3. If the DB is down, log the error and stop the process
     console.error("❌ Critical Error: Could not connect to the database.");
     console.error(error.message);
-    
-    // Exit the process with a 'failure' code (1)
     process.exit(1);
   }
 }
-
 startServer();
+app.use((err, req, res, next) => {
+    console.error('❌ Error Stack:', err.stack);
+
+    // If it's a Zod error, format it nicely
+    if (err.name === 'ZodError') {
+        return res.status(400).json({
+            error: 'Validation Error',
+            details: err.errors,
+        });
+    }
+
+    // Default error response
+    res.status(err.status || 500).json({
+        error: err.message || 'Internal Server Error',
+    });
+});
