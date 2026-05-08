@@ -3,11 +3,18 @@ import { db } from './db/index.js';
 import { sql } from 'drizzle-orm';
 import express from 'express';
 import notesRoutes from './routes/notesRoutes.js'
+import authRoutes from './routes/authRoutes.js';
+import folderRoutes from './routes/folderRoutes.js';
+import tagRoutes from './routes/tagRoutes.js'
+
 const app = express();
 const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use('/api/notes',notesRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/folders', folderRoutes);
+app.use('/api/tags', tagRoutes);
 
 async function startServer() {
   try {

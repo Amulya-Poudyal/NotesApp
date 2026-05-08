@@ -17,6 +17,7 @@ export const notes=mysqlTable('notes',
         isArchived:boolean('is_archived').default(false),
         createdAt:timestamp('created_at').defaultNow(),
         updatedAt:timestamp('updated_at').defaultNow().onUpdateNow(),
+        deletedAt: timestamp('deleted_at'),
 
     }
 )
