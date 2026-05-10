@@ -181,18 +181,24 @@ export const Dashboard: React.FC = () => {
           </div>
         ) : null}
       </section>
+      {/* Massive invisible drop zone in corner */}
       <div
         onDragOver={(e) => e.preventDefault()}
         onDrop={(e) => {
           e.preventDefault();
           moveDraggedToBin();
         }}
-        className={`fixed bottom-6 right-6 z-40 h-14 w-14 rounded-full border flex items-center justify-center transition-all ${
-          draggingNoteId ? 'bg-red-100 border-red-500 text-red-600 scale-110' : 'bg-card-bg border-border-subtle text-text-secondary'
-        }`}
+        className="fixed bottom-0 right-0 z-40 h-48 w-48"
         title="Drag note here to delete it"
       >
-        <Trash2 size={20} />
+        {/* Visual Bin Icon */}
+        <div 
+          className={`absolute bottom-6 right-6 h-14 w-14 rounded-full border flex items-center justify-center transition-all duration-300 ${
+            draggingNoteId ? 'bg-red-100 border-red-500 text-red-600 scale-125 shadow-xl' : 'bg-card-bg border-border-subtle text-text-secondary'
+          }`}
+        >
+          <Trash2 size={20} />
+        </div>
       </div>
       {openedNote && (
         <div className="fixed inset-0 z-[125] flex items-center justify-center px-4">
