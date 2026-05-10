@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Libre Baskerville", ui-serif, Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --color-page-bg: #f9f8f4;
+  --color-text-main: #1a1a1a;
+  --color-text-secondary: #666666;
+  --color-border-subtle: rgba(0, 0, 0, 0.08);
+  --color-border-heavy: #1a1a1a;
+  
+  --color-accent: #000000;
+  
+  --radius-none: 0px;
+  --radius-sm: 2px;
+}
+
+@layer base {
+  body {
+    @apply bg-page-bg text-text-main antialiased font-sans;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif;
+  }
+}
+
+/* Custom Utilities for Brutalist Look */
+@utility brutalist-border {
+  border: 1px solid var(--color-border-subtle);
+}
+
+@utility brutalist-card {
+  @apply brutalist-border bg-white p-6 transition-all duration-200;
+  &:hover {
+    @apply border-border-heavy shadow-[4px_4px_0px_0px_rgba(0,0,0,0.05)];
+  }
+}
+
+@utility mono-text {
+  @apply font-mono text-[11px] tracking-wider uppercase opacity-60;
+}
