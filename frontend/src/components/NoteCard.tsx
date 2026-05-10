@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Pin, MoreHorizontal, Pencil, Bookmark } from 'lucide-react';
+import { MoreHorizontal, Pencil, Bookmark } from 'lucide-react';
 import type { Note } from '../types';
 
 interface NoteCardProps {
