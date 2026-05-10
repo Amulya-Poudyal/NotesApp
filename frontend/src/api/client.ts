@@ -1,7 +1,19 @@
 import axios from 'axios';
 
 const getBaseURL = () => {
-  return import.meta.env.VITE_API_URL + '/api';
+  let url = import.meta.env.VITE_API_URL || '';
+  
+  if (url && !url.startsWith('http')) {
+    url = `https://${url}`;
+  }
+  
+  url = url.replace(/\/+$/, '');
+  
+  if (!url.endsWith('/api')) {
+    url += '/api';
+  }
+  
+  return url;
 };
 
 const api = axios.create({
