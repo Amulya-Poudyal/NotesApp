@@ -28,7 +28,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch, isLoading }) => 
         value={value}
         onChange={(e) => setValue(e.target.value)}
         placeholder="Search notes, tags, or content..." 
-        className="w-full pl-12 pr-12 py-3 bg-white/90 brutalist-border focus:border-border-heavy outline-none transition-all text-sm"
+        className="w-full pl-12 pr-12 py-3 bg-card-bg/90 brutalist-border focus:border-border-heavy outline-none transition-all text-sm"
       />
 
       <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">

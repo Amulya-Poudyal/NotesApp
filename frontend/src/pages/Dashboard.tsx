@@ -88,8 +88,7 @@ export const Dashboard: React.FC = () => {
         </p>
       </header>
 
-      {/* Visually hidden but functional search for now, could be integrated better later */}
-      <div className="hidden">
+      <div className="mb-12 max-w-2xl">
         <SearchBar onSearch={setSearch} isLoading={isLoading} />
       </div>
 
@@ -156,7 +155,7 @@ export const Dashboard: React.FC = () => {
 
         {isLoading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3, 4, 5, 6].map(i => <div key={i} className="h-48 border border-border-subtle bg-white/50 animate-pulse" />)}
+            {[1, 2, 3, 4, 5, 6].map(i => <div key={i} className="h-48 border border-border-subtle bg-card-bg/50 animate-pulse" />)}
           </div>
         ) : otherNotes.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -175,7 +174,7 @@ export const Dashboard: React.FC = () => {
             ))}
           </div>
         ) : !pinnedNotes.length ? (
-          <div className="py-20 text-center border border-border-subtle bg-white/30">
+          <div className="py-20 text-center border border-border-subtle bg-card-bg/30">
             <Search size={32} className="mx-auto mb-4 opacity-20" />
             <h4 className="text-xl font-serif mb-2">No matches found</h4>
             <p className="text-text-secondary text-sm">Try adjusting your filters or search query.</p>
@@ -189,7 +188,7 @@ export const Dashboard: React.FC = () => {
           moveDraggedToBin();
         }}
         className={`fixed bottom-6 right-6 z-40 h-14 w-14 rounded-full border flex items-center justify-center transition-all ${
-          draggingNoteId ? 'bg-red-100 border-red-500 text-red-600 scale-110' : 'bg-white border-border-subtle text-text-secondary'
+          draggingNoteId ? 'bg-red-100 border-red-500 text-red-600 scale-110' : 'bg-card-bg border-border-subtle text-text-secondary'
         }`}
         title="Drag note here to delete it"
       >
@@ -198,7 +197,7 @@ export const Dashboard: React.FC = () => {
       {openedNote && (
         <div className="fixed inset-0 z-[125] flex items-center justify-center px-4">
           <div className="absolute inset-0 bg-page-bg/80 backdrop-blur-sm" onClick={() => setOpenedNote(null)} />
-          <div className="relative w-full max-w-3xl bg-white brutalist-border p-6 md:p-8">
+          <div className="relative w-full max-w-3xl bg-card-bg brutalist-border p-6 md:p-8">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-3xl font-serif font-bold">{openedNote.title}</h3>
               <button onClick={() => setOpenedNote(null)}><X size={18} /></button>
@@ -215,7 +214,7 @@ export const Dashboard: React.FC = () => {
       {editingNote && (
         <div className="fixed inset-0 z-[130] flex items-center justify-center px-4">
           <div className="absolute inset-0 bg-page-bg/80 backdrop-blur-sm" onClick={() => setEditingNote(null)} />
-          <div className="relative w-full max-w-2xl bg-white brutalist-border p-6 md:p-8">
+          <div className="relative w-full max-w-2xl bg-card-bg brutalist-border p-6 md:p-8">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-2xl font-serif font-bold">Edit Note</h3>
               <button onClick={() => setEditingNote(null)}><X size={18} /></button>

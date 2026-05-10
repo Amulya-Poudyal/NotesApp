@@ -32,7 +32,7 @@ export const LoginPage: React.FC = () => {
           <p className="text-text-secondary mono-text">Authentication Required</p>
         </div>
 
-        <div className="brutalist-card bg-white p-8">
+        <div className="brutalist-card bg-card-bg p-8">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label className="block text-[11px] font-mono uppercase tracking-widest text-text-secondary mb-2">Username</label>

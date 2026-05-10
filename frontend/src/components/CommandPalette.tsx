@@ -59,8 +59,7 @@ export const CommandPalette: React.FC = () => {
   return (
     <div className="fixed inset-0 z-[100] flex items-start justify-center pt-[15vh] px-4 animate-in fade-in duration-200">
       <div className="fixed inset-0 bg-page-bg/90 backdrop-blur-sm" onClick={() => setIsOpen(false)} />
-      
-      <div className="relative w-full max-w-2xl bg-white brutalist-border shadow-2xl overflow-hidden animate-in slide-in-from-top-4 duration-300">
+      <div className="relative w-full max-w-2xl bg-card-bg brutalist-border shadow-2xl overflow-hidden animate-in slide-in-from-top-4 duration-300">
         <div className="flex items-center px-6 py-4 border-b border-border-subtle">
           <Search size={20} className="text-text-secondary mr-4" />
           <input 

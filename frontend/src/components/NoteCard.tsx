@@ -52,7 +52,7 @@ export const NoteCard: React.FC<NoteCardProps> = ({
       onDragStart={() => onDragStart?.(note.id)}
       onDragEnd={() => onDragEnd?.()}
       onClick={() => onOpen?.(note)}
-      className={`group relative flex flex-col bg-white border border-border-subtle p-8 transition-colors hover:border-gray-300 ${isPinnedVariant ? 'h-[280px]' : 'h-[240px]'}`}
+      className={`group relative flex flex-col bg-card-bg border border-border-subtle p-8 transition-colors hover:border-gray-300 ${isPinnedVariant ? 'h-[280px]' : 'h-[240px]'}`}
     >
       <div className="flex justify-between items-start mb-6">
         <span className="text-[10px] uppercase tracking-widest font-mono text-text-secondary">
@@ -97,7 +97,7 @@ export const NoteCard: React.FC<NoteCardProps> = ({
           <MoreHorizontal size={16} />
         </button>
         {menuOpen && (
-          <div className="absolute right-0 mt-2 w-44 bg-white brutalist-border shadow-sm z-20">
+          <div className="absolute right-0 mt-2 w-44 bg-card-bg brutalist-border shadow-sm z-20">
             {!isBinView && (
               <>
                 <button

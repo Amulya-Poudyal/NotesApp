@@ -12,6 +12,7 @@
   --color-border-heavy: #1a1a1a;
   
   --color-accent: #000000;
+  --color-card-bg: #ffffff;
   
   --radius-none: 0px;
   --radius-sm: 2px;
@@ -25,6 +26,16 @@
   h1, h2, h3, h4 {
     @apply font-serif;
   }
+
+  .dark {
+    --color-page-bg: #121212;
+    --color-text-main: #f5f5f5;
+    --color-text-secondary: #a0a0a0;
+    --color-border-subtle: rgba(255, 255, 255, 0.1);
+    --color-border-heavy: #555555;
+    --color-accent: #ffffff;
+    --color-card-bg: #1e1e1e;
+  }
 }
 
 /* Custom Utilities for Brutalist Look */
@@ -33,7 +44,7 @@
 }
 
 @utility brutalist-card {
-  @apply brutalist-border bg-white p-6 transition-all duration-200;
+  @apply brutalist-border bg-card-bg p-6 transition-all duration-200;
   &:hover {
     @apply border-border-heavy shadow-[4px_4px_0px_0px_rgba(0,0,0,0.05)];
   }
