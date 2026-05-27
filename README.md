@@ -1,4 +1,4 @@
-# Aura Notes
+# Notes App
 
 A full-stack note-taking application built with a modern web stack. It provides a seamless experience for creating, organizing, and managing your notes with a robust backend and an interactive frontend.
 
